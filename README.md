@@ -2,7 +2,11 @@
 #DESCRIPTION
 
 Un site d'information de pour informer sur les evenement du club & De gestion pour gérer les matchs  du club de tennis de table de Tltteperleque situe sur il est developper par des etudiant de l'uit licence professionel d'internet et mobile 2022_2023
-comme project tutore  qui sont Medi LUPINI, Antoine LAMESCH et Guillaume DUQUESNE et comme représentant du club Mr Rémi Synave secretaire du club
+comme project tutore  qui sont:
+-Medi LUPINI;
+-Antoine LAMESCH ;
+-Guillaume DUQUESNE .
+et comme représentant du club Mr Rémi Synave secretaire du club
 
 #ENVIRONNEMENT
 
