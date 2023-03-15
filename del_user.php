@@ -16,7 +16,7 @@ if($_SESSION['role'] != "ADMIN"){
 
 }
 
-$usr = new USER();
+$usr = new User();
 
 if($_POST['id'] != $_SESSION['id']){
     $usr->deleteUser($_POST['id']);

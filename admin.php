@@ -160,7 +160,7 @@ if ($_SESSION['role'] != "ADMIN") {
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a href="./admin.php" class="ti-user dropdown-item">  Page admin</a>
     <a class="ti-write dropdown-item" href="#">  Zone entraîneur</a>
-    <a  href="./affiche_match.php" class="ti-write dropdown-item" >  Planning</a>
+    <a class="ti-write dropdown-item" href="./affiche_match.php">  Planning</a>
   </div>
 </div>';
                   } ?>
@@ -301,6 +301,10 @@ if ($_SESSION['role'] != "ADMIN") {
       text-decoration: none;
     }
 
+    table.table td p {
+      margin-left:-1em;
+    }
+
     table.table td a:hover {
       color: #2196F3;
     }
@@ -421,9 +425,12 @@ if ($_SESSION['role'] != "ADMIN") {
               <tr>
                 <th>#</th>
                 <th>Nom/Prenom</th>
+                <th>Email</th>
+                <th>Num</th>
+                <th>Licence</th>
                 <th>Date de création </th>
                 <th>Role</th>
-                <th>Etat</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -443,21 +450,28 @@ if ($_SESSION['role'] != "ADMIN") {
                 $date = $value['date_u'];
                 $role = $value['role'];
                 $etat = $value['etat'];
+                $num_licence = $value['num_licence_u'];
+                $email = $value['email'];
+                $tel = $value['tel_u'];
+                $status = $value['status'];
 
 
                 echo "
                     <tr>
                         <td>$id</td>
-                        <td><a href='#'><img src='$image' class='avatar' alt='Avatar'> $prenom $nom</a></td>
+                        <td><a href='#'><img src='$image' class='avatar' alt='Avatar'> <p>$prenom $nom</p></a></td>
+                        <td>$email</td>
+                        <td>0$tel</td>
+                        <td>$num_licence</td>
                         <td>$date</td>                        
                         <td>$role</td>
-                        <td><span class='status text-success'>&bull;</span> $etat</td>
+                        <td>"./*<span class='status text-success'>&bull;</span>*/" $status</td>
                         <td>
                             <a href='#' class='settings' title='Settings' data-toggle='tooltip'><i ti-write></i></a>
                             <form action='./del_user.php' method='post'>
                               <input type='hidden' name='id' value='$id' />
-                              <button type='submit' id='button_add_user' class='btn btn-primary btn-block'
-                                style=' margin-bottom:2em; background-color:#156893' onclick= \"return confirm('Supprimer l utilisateur  $prenom $nom ????');\"><i
+                              <button type='submit' id='button_add_user' class='btn btn-primary btn-block'onclick= \"return confirm('Supprimer l utilisateur  $prenom $nom ????');\"
+                                style=' margin-bottom:2em; background-color:#156893' ><i
                                 class='ti-trash'></i>
                               </button>
                             </form>

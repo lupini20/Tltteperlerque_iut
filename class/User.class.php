@@ -22,8 +22,7 @@ class User{
 
         $tableau_ini= parse_ini_file('./ini/info.ini');
         $bdd=new BDD($tableau_ini['Server'],$tableau_ini['DBName'],$tableau_ini['User'],$tableau_ini['Mdp']);
-    $res = $bdd->selectQuery("Select count(*) as nb from users where email like ? and mdp like ?;", [$email, hash("gost", $password)]);
-
+        $res = $bdd->selectQuery("Select count(*) as nb from users where email like ? and mdp like ?;", [$email, hash("gost", $password)]);
         return $res;
     }
 

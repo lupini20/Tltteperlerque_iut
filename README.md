@@ -1,49 +1,118 @@
-# Tltteperlerque_iut
-#DESCRIPTION
+# Megakit By Themefisher
 
-Un site d'information de pour informer sur les evenement du club & De gestion pour gérer les matchs  du club de tennis de table de Tltteperleque situe sur il est developper par des etudiant de l'uit licence professionel d'internet et mobile 2022_2023
-comme project tutore  qui sont:
--Medi LUPINI;
--Antoine LAMESCH ;
--Guillaume DUQUESNE .
-et comme représentant du club Mr Rémi Synave secretaire du club
+Megakit is a well-crafted, versatile and unique HTML5 agency template. Its wonderful features can be used to enhance the websites of IT firms, digital agencies, and creative professionals.
 
-#ENVIRONNEMENT
+<!-- demo -->
+## Example Site
 
-le site web a ete fait avec du langage HTML pour la struture du page de structurer sémantiquement une page web https://fr.wikipedia.org/wiki/Hypertext_Markup_Language
-avec du CSS qui est un langage informatique utilisé pour décrire la présentation et le style visuel des pages web https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade
-ensuite il ya le JAVASCRIPT pour quelques animations https://fr.wikipedia.org/wiki/JavaScript et du PHP pour gerer le scrips et la base de données https://fr.wikipedia.org/wiki/PHP#
-elle utilise aussi wampServer pour gérer les scripts php et la base de donnéesben local https://fr.wikipedia.org/wiki/WampServer
-elle utilise aussi Boostrap qui est une collection d'outils utiles à la création du design et permet que le site soit responsive https://getbootstrap.com/
+| [![](screenshots/homepage.png)](https://demo.themefisher.com/megakit/) | [![](screenshots/about.png)](https://demo.themefisher.com/megakit/about.html) | [![](screenshots/service.png)](https://demo.themefisher.com/megakit/service.html) |
+|:---:|:---:|:---:|
+| **Homepage**  | **About**  | **Service**  |
+| [![](screenshots/portfolio.png)](https://demo.themefisher.com/megakit/project.html) | [![](screenshots/blog.png)](https://demo.themefisher.com/megakit/blog-grid.html) | [![](screenshots/contact.png)](https://demo.themefisher.com/megakit/contact.html) |
+| **Portfolio** | **Blogs** | **Contact** |
 
-#INSTALLATION
+👉🏻[View Live Preview](https://demo.themefisher.com/megakit/)
 
-Avoir installer aussi WampServer ou Xampp une plateforme de développement Web de type permettant de faire fonctionner localement (sans avoir à se connecter à un serveur externe) des scripts PHP.
-pour plus de details https://fr.wikipedia.org/wiki/WampServer ou documentation pour l'installer https://www.wampserver.com/en/download-wampserver-64bits/ ou xampp https://www.apachefriends.org/download.html
-Avoir installer PHP la version 7 est préférable 
+<!-- pages -->
+## Pages
 
-#LANCEMENT DU PROJECT
+* **Homepage**
+* **About**
+* **Services**
+* **Pricing**
+* **Project**
+* **Blog Grid**
+* **Blog Sidebar**
+* **Blog Details**
+* **Contact**
 
-Vous devez d'abord lancez votre serveur Apache(xampp) pour ceux qu'utilise xampp et WampServer pour les autres , enfin de bien géré la base des donnees et les scripts php sur votre navigateur et sur le bar de l'url ecrivez le non de votre dossier que vous aviez donner a ce project comme ceci http://localhost/tennis_de_table/index.php
+<!-- download -->
+## Download And installation
 
-#Fonctionnalités
+Download this template from [Github](https://github.com/themefisher/megakit/archive/main.zip)
 
-dès que vous etes sur le site vous pouvez voir les infomation élémentaire comme l'adress, les horaires, l'oganigramme du club les images, les infos sur les inscriptions etc... 
-NB: il ya des informations spécifiques destinées qu'a certaines personnes authentifié par le club
-pour se connecter il faut avoir un compte créer par l'amdnistrateur et et il ya 3 rôles ou type des admis:
-- admis qui peut cree de compte utilisteur, modifiéet surprimmer  et mettre ajour le site 
-- admis comme captaine pour selectionner les joueurs dispo
-- admis comme joueur qui peut voir les programme des matchs et dire sa disponibilité 
+<!-- installation -->
+### Basic Usages
 
-connection/Decoonection/affichage du nom d'utilisteur connecté/creation,suppression et modification des utilisateur par l'admis
-selection des joeurs par l'admis comme captain/
+After downloading the template, you can simply edit the HTML and CSS files from the `theme` folder. To preview the changes you make to the code, you can open the index.html file in your web browser.
 
+### Advanced Usage
 
+For advanced usage, you have some prerequisites to install. Then you can run it on your localhost. You can view the package.json file to see which scripts are included.
 
+#### Install prerequisites (once for a machine)
 
+* **Node Installation:** [Install node js](https://nodejs.org/en/download/)
+* **Gulp Installation:** Install gulp globally from your terminal
 
+```
+npm install --global gulp-cli
+```
 
+Or visit the original [Gulp docs](https://gulpjs.com/docs/en/getting-started/quick-start)
 
+#### Local setup
 
+After successfully installing those dependencies, open this theme with any IDE [[VS Code](https://code.visualstudio.com/) recommended], and then open the internal terminal of IDM [vs code shortcut <code>ctrl/cmd+\`</code>]
 
+* Install dependencies
 
+```
+npm install
+```
+
+* Run locally
+
+```
+npm run dev
+```
+
+After that, it will open up a preview of the template in your default browser, watch for changes to source files, and live reload the browser when changes are saved.
+
+#### Production Build
+
+After finishing all the customization, you can create a production build by running this command.
+
+```
+npm run build
+```
+
+Now you get a `theme` folder that has all the changes you have made. you can use this folder as your main theme.
+
+👉🏻 [visit documentation](https://docs.themefisher.com/megakit/)
+
+<!-- reporting issue -->
+## Reporting Issues
+
+We use GitHub Issues as the official bug tracker for the Megakit Template. Please Search [existing issues](https://github.com/themefisher/megakit/issues). It’s possible someone has already reported the same problem.
+If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/megakit/issues).
+
+<!-- support -->
+## Technical Support or Questions (Paid)
+
+If you have questions or need help integrating the product please [contact us](mailto:mehedi@themefisher.com) instead of opening an issue.
+
+<!-- licence -->
+## License
+
+Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+
+**Code License:** Released under the [MIT](https://github.com/themefisher/megakit/blob/main/LICENSE) license.
+
+**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+
+<!-- resources -->
+## Resources
+
+Some third-party plugins that we used to build this template. Please check their license.
+
+* **Bootstrap v4.5**: <https://getbootstrap.com/docs/4.5/getting-started/introduction/>
+* **Jquery v3.5.1**: <https://jquery.com/download/>
+* **Google Fonts**: <http://fonts.google.com/>
+* **Themify Icons**: <https://themify.me/themify-icons>
+* **Animate CSS**: <https://animate.style/>
+* **Magnific Popup**: <https://dimsemenov.com/plugins/magnific-popup/>
+* **Font Awesome Free**: <https://fontawesome.com/>
+* **Counter-Up**: <https://github.com/bfintal/Counter-Up>
+* **Waypoints**: <http://imakewebthings.com/waypoints/>
+* **Slick**: <https://kenwheeler.github.io/slick/>

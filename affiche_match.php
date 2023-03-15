@@ -10,6 +10,14 @@ spl_autoload_register(function ($class_name) {
 });
 
 
+if ($_SESSION['role'] != "ADMIN") {
+
+  header('Location: ./index.php');
+  exit();
+
+}
+
+
 
 ?>
 
@@ -268,6 +276,35 @@ spl_autoload_register(function ($class_name) {
                     }
                     }*/
 
+                    function presence($id_u, $id_m){
+
+                      $um = new User_match;
+                      $um->createUserMatch($id_u, $id_m);
+
+
+                    }
+
+                    function idMatch($libelle){
+
+                      $m= new Match_eq;
+                      $retour = $m->getIdMatch($libelle);
+                      $id_match = $retour[0]['id_match'];
+                      return $id_match;
+                    }
+
+                    $id_user = $_SESSION['id'];
+
+                    function isPresent($id_u, $id_m){
+
+                      $um = new User_match();
+                      $is_Present = $um->isPresent($id_u, $id_m);
+                      return intval($is_Present[0]['nb']);
+
+
+                    }
+                    
+
+
 
                     foreach ($EquipeA as $name => $val) {
                       foreach ($val as $chiffre => $libelle) {
@@ -278,6 +315,10 @@ spl_autoload_register(function ($class_name) {
 
 
                           $date = explode("/", $libelle['datereelle']);
+                          $date_format_2 = $date[2]."-".$date[1]."-".$date[0];
+                          $today = date("Y-m-d"); // La date d'aujourd'hui au format Y-m-d
+                          $id_match = idMatch($libelle['libelle']);
+                          
 
 
                           if ($libelle['equa'] == 'ENT EPERLECQUES-STE MARIE KERQUES') {
@@ -286,6 +327,22 @@ spl_autoload_register(function ($class_name) {
                           } else {
                             $lieu = "EXTERIEUR";
                           }
+
+                          $equa = $libelle['equa'];
+                          $equb = $libelle['equb'];
+
+                          if (empty($equa)) {
+                            $equa = "exempt";
+                          } else if (empty($equb)) {
+                            $equb = "exempt";
+                          }
+
+                          
+                          $libelle_match = $libelle['libelle'];
+
+
+                          $match = new Match_eq();
+                          $match->createMatch($libelle['libelle'], 'D2', $equa, $equb, $lieu, $libelle['datereelle']);
 
                           //$dec_equa = explode("", $libelle['equa']);
                           //var_dump($info_equb1, $libelle['equa']);
@@ -315,11 +372,37 @@ spl_autoload_register(function ($class_name) {
                         <span>$lieu</span>
                     </div>
                 </td>
-                <td>
-                    <div class='primary-btn'>
-                    <a class='btn btn-primary' href='#'><i class='ti-check color-green text-md'></i></a>
-                    <a class='btn btn-primary' href='#'><i class='ti-close color-red text-md'></i></a>
-                    </div>
+                <td>";
+
+                    if(strtotime($date_format_2) < strtotime($today)){
+
+                      echo "Match passé";
+
+                    }
+                    elseif(isPresent($id_user, $id_match) === 0){
+                      echo"Vous n'êtes pas présent à ce match;
+                      <form action='./add_presence.php' method='post'>
+                      <div class='primary-btn'>
+                      <input type='hidden' name='id_u' value=$id_user>
+                      <input type='hidden' name='id_m' value=$id_match>
+                      <button class='btn btn-primary' type='submit'><i class='ti-check color-green text-md'></i></button>
+                      </div>
+                      </form>";
+
+
+                    }else{
+                      echo"Vous êtes présent à ce match;
+                      <form action='./del_presence.php' method='post'>
+                      <div class='primary-btn'>
+                      <input type='hidden' name='id_u' value=$id_user>
+                      <input type='hidden' name='id_m' value=$id_match>
+                      <button class='btn btn-primary' type='submit'><i class='ti-close color-green text-md'></i></button>
+                      </div>
+                      </form>";
+                    }
+                    
+
+                    echo"
                 </td>
                 </tr> ";
                         }
@@ -362,6 +445,10 @@ spl_autoload_register(function ($class_name) {
 
 
                           $date = explode("/", $libelle['datereelle']);
+                          $date_format_2 = $date[2]."-".$date[1]."-".$date[0];
+                          $today = date("Y-m-d"); // La date d'aujourd'hui au format Y-m-d
+                          $id_match = idMatch($libelle['libelle']);
+                          
 
 
                           if ($libelle['equa'] == 'EPERLECQUES TLT 2') {
@@ -380,43 +467,77 @@ spl_autoload_register(function ($class_name) {
                           } else if (empty($equb)) {
                             $equb = "exempt";
                           }
+
+                          $match = new Match_eq();
+                          $match->createMatch($libelle['libelle'], 'D3', $equa, $equb, $lieu, $libelle['datereelle']);
+
+
+                          
+
+
                           echo "
 
 
-<tr class='inner-box'>
-<th scope='row'>
-<div class='event-date'>
-<span>" . $date[0] . "</span>
-<p>" . $date[1] . "    " . $date[2] . "</p>
-</div>
-</th>
-<td>
-<div class='event-img'>
-<img src='./images/D3.png' alt='' />
-</div>
-</td>
-<td>
-<div class='event-wrap'>
-<h3><a href='#'>" . $equa . " <br/>   VS  <br/>  " . $equb . "</a></h3>
-<div class='meta'>
-</div>
-</div>
-</td>
-<td>
-<div class='r-no'>
-<span>$lieu</span>
-</div>
-</td>
-<td>
-<div class='primary-btn'>
-<a class='btn btn-primary' href='#'><i class='ti-check color-green text-md'></i></a>
-<a class='btn btn-primary' href='#'><i class='ti-close color-red text-md'></i></a>
-</div>
-</td>
-</tr>";
+                          <tr class='inner-box'>
+                          <th scope='row'>
+                          <div class='event-date'>
+                          <span>" . $date[0] . "</span>
+                          <p>" . $date[1] . "    " . $date[2] . "</p>
+                          </div>
+                          </th>
+                          <td>
+                          <div class='event-img'>
+                          <img src='./images/D3.png' alt='' />
+                          </div>
+                          </td>
+                          <td>
+                          <div class='event-wrap'>
+                          <h3><a href='#'>" . $equa . " <br/>   VS  <br/>  " . $equb . "</a></h3>
+                          <div class='meta'>
+                          </div>
+                          </div>
+                          </td>
+                          <td>
+                          <div class='r-no'>
+                          <span>$lieu</span>
+                          </div>
+                          </td>
+                          <td>ee";
+
+                          if(strtotime($date_format_2) < strtotime($today)){
+
+                            echo "Match passé";
+      
+                          }
+                          elseif(isPresent($id_user, $id_match) === 0){
+                            echo"Vous n'êtes pas présent à ce match;
+                            <form action='./add_presence.php' method='post'>
+                            <div class='primary-btn'>
+                            <input type='hidden' name='id_u' value=$id_user>
+                            <input type='hidden' name='id_m' value=$id_match>
+                            <button class='btn btn-primary' type='submit'><i class='ti-check color-green text-md'></i></button>
+                            </div>
+                            </form>";
+      
+      
+                          }else{
+                            echo"Vous êtes présent à ce match;
+                            <form action='./del_presence.php' method='post'>
+                            <div class='primary-btn'>
+                            <input type='hidden' name='id_u' value=$id_user>
+                            <input type='hidden' name='id_m' value=$id_match>
+                            <button class='btn btn-primary' type='submit'><i class='ti-close color-green text-md'></i></button>
+                            </div>
+                            </form>";
+                          }
+
+                          echo"
+                          </td>
+                          </tr>";
                         }
                       }
                     }
+
                     ?>
                   </tbody>
                 </table>

@@ -90,4 +90,13 @@
 12/10/2022 16:01:23            SQLSTATE[HY000] [1049] Base 'todolist' inconnue
 12/10/2022 16:01:24            SQLSTATE[HY000] [1049] Base 'todolist' inconnue
 12/10/2022 16:01:24            SQLSTATE[HY000] [1049] Base 'todolist' inconnue
-08/03/2023 13:41:58            SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: H�te inconnu. 
+15/03/2023 07:53:33            SQLSTATE[HY000] [2002] Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu.
+
+15/03/2023 07:54:06            SQLSTATE[HY000] [2002] Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu.
+
+15/03/2023 07:54:22            SQLSTATE[HY000] [2002] Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte.
+
+15/03/2023 08:41:40            SQLSTATE[HY000] [2002] Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu.
+
+15/03/2023 11:55:01            SQLSTATE[HY000] [2002] Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu.
+
